@@ -2,15 +2,13 @@ import bpy
 import numpy as np
 from mathutils import Vector
 #Define SF
-sf=5
+sf=2 # The scale factor of square relative to unit square in Blender 2.8
 def projection(u, v):
   try:
     u*=sf
     v*=sf
     theta = np.pi - 2*(np.arctan((u**2+v**2)**(1/2)))
-    print(theta)
     phi = np.arctan(v/u)
-    print(phi)
     if u < 0:
       phi = phi + np.pi 
     z = np.cos(theta)
